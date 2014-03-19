@@ -1,0 +1,24 @@
+%h1(class="title")
+  %span Lifetime
+
+%span(id="data-lifetime")
+  %ul(class="device")
+    %li(data-bind="device.version" class="version")
+    %li(data-bind="device.last_sync" class="sync")
+    %li(data-bind-class="device.battery | prepend 'battery-' | downcase") &nbsp;
+
+  %ul(class="views")
+
+    %li(class="distance_total")
+      .value
+        %span(data-bind="distance.total | shortenedNumber")
+        %span(data-bind="distance.unit" class="unit")
+
+      .label lifetime distance
+
+
+%span(id="error")
+  .value Uh Oh.
+  %p(data-bind="error")
+
+%p(class="updated-at" data-bind="updatedAtMessage")

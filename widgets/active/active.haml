@@ -1,0 +1,25 @@
+%h1(class="title")
+  %span Lifetime
+
+%span(id="data-active")
+  %ul(class="device")
+    %li(data-bind="device.version" class="version")
+    %li(data-bind="device.last_sync" class="sync")
+    %li(data-bind-class="device.battery | prepend 'battery-' | downcase") &nbsp;
+
+  %ul(class="views")
+
+    %li(data-bind-class="active.intensity_class | prepend 'active '")
+      %input(class="meter" data-bind-value="active.meter")
+      .icon
+      .value(data-bind="active.today")
+      .label very active minutes
+      .goal(data-bind="active.goal | append '% of goal'")
+      .bar(data-bind-data-bar-width="active.goal")
+
+
+%span(id="error")
+  .value Uh Oh.
+  %p(data-bind="error")
+
+%p(class="updated-at" data-bind="updatedAtMessage")
